@@ -1,5 +1,5 @@
 <?php
-Задание 1:
+//Задание 1:
 while(true) {
     $question = (int)readline("В каком году произошло крещение Руси?" . PHP_EOL .
         "1) 810 " . PHP_EOL .
