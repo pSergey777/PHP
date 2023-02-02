@@ -8,7 +8,7 @@ $students = [
         'Савина Валерия' => 5,
         'Артамонов Александр' => 5,
         'Петрова Милана' => 4,
-        'Баранов Глеб' => 3,
+        'Баранов Глеб' => 2,
         'Бобров Егор' => 4,
         'Егорова Дарья' => 4,
         'Калугин Даниил' => 2,
@@ -27,6 +27,7 @@ $students = [
     ]
 ];
 
+
 $averageRating = [];
     foreach($students as $group => $student) {
         $zero = 0;
@@ -36,5 +37,26 @@ $averageRating = [];
         $averageRating[$group] = $zero;
     }
 
-echo "Группа с самым большим вычисленным значением успеваемости: " . array_key_first($averageRating);
+
+$expulsion = [];
+
+foreach ($students as $group => $student) {
+    $losers = [];
+    foreach ($student as $classman => $mark) {
+        if ($mark < 3) {
+            $losers[] = $classman;
+        }
+    }
+    $expulsion[$group] = $losers;
+}
+
+echo sprintf("Группа с самым большим вычисленным значением успеваемости: %s%s", array_key_first($averageRating), PHP_EOL);
+echo ("Студенты в списке на отчисление: ");
+print_r($expulsion);
+
+
+
+
+
+
 
